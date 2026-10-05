@@ -1,0 +1,33 @@
+fake_words = [
+    "shocking",
+    "secret",
+    "miracle",
+    "unbelievable",
+    "click here",
+    "you won't believe",
+    "100% true",
+    "breaking!!!"
+]
+def detect_fake_news(news):
+    news = news.lower()
+    score = 0
+    for word in fake_words:
+        if word in news:
+            score += 1
+    if score >= 2:
+        return "FAKE NEWS"
+    else:
+        return "REAL NEWS"
+print("=== FAKE NEWS DETECTION ===")
+news = input("Enter news: ")
+result = detect_fake_news(news)
+print("\nNews:", news)
+print("Prediction:", result)
+
+
+OUTPUT:
+=== FAKE NEWS DETECTION ===
+Enter news: Shocking! You won't believe this miracle cure!
+News: Shocking! You won't believe this miracle cure!
+Prediction: FAKE NEWS
+
